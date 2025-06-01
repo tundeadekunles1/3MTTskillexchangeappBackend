@@ -39,7 +39,7 @@ export const register = async (req, res) => {
     );
 
     // Create verification link
-    const verificationLink = `http://localhost:3000/verify/${emailToken}`;
+    const verificationLink = `https://newskill-bridge.vercel.app/verify/${emailToken}`;
 
     // Send email using NodeMailer
     const transporter = nodemailer.createTransport({
@@ -113,7 +113,7 @@ export const forgotPassword = async (req, res) => {
     user.resetTokenExpire = Date.now() + 3600000; // 1 hour
     await user.save();
 
-    const resetLink = `http://localhost:3000/reset-password/${token}`;
+    const resetLink = `https://newskill-bridge.vercel.app/reset-password/${token}`;
 
     console.log("Sending reset email to:", user.email);
 
@@ -180,7 +180,7 @@ export const sendVerificationEmail = async (user) => {
   user.resetTokenExpire = Date.now() + 3600000;
   await user.save();
 
-  const verifyLink = `http://localhost:3000/verify/${token}`;
+  const verifyLink = `https://newskill-bridge.vercel.app/verify/${token}`;
   await sendEmail({
     to: user.email,
     subject: "Verify Your Email",
