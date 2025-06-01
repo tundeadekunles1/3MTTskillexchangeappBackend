@@ -11,7 +11,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://skillappmvp.vercel.app",
     credentials: true,
   })
 );
